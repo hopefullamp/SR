@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{B1682109-30F1-B3C3-9E08-4DC6147BD439}</ProjectGuid>
+    <ProjectGuid>{44B827B6-DAA2-2A3A-F016-8EB31BB9A968}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -76,7 +76,7 @@
     <Compile Include="Assets\Script\LobbyScene.cs" />
     <Compile Include="Assets\Script\LogoScene.cs" />
     <Compile Include="Assets\Script\MakeStar.cs" />
-    <Compile Include="Assets\Script\newSensor.cs" />
+    <Compile Include="Assets\Script\newSensor2.cs" />
     <Compile Include="Assets\Script\PlayButton.cs" />
     <Compile Include="Assets\Script\Record.cs" />
     <Compile Include="Assets\Script\SaveManager.cs" />
@@ -229,16 +229,16 @@
     <None Include="Assets\SpriteParticleEmitter\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
     <None Include="Assets\SpriteParticleEmitter\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>/Users/leokoh/Documents/Unity/sr/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>/Users/leokoh/Documents/Unity/SR/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/leokoh/Documents/Unity/sr/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>/Users/leokoh/Documents/Unity/SR/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>/Users/leokoh/Documents/Unity/sr/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>/Users/leokoh/Documents/Unity/SR/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/leokoh/Documents/Unity/sr/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>/Users/leokoh/Documents/Unity/SR/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
