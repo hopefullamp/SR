@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{D1639009-A371-55CB-D237-604F8C5D4D0F}</ProjectGuid>
+    <ProjectGuid>{3F35C9D8-3758-69D7-8F4B-D0DEAA086D21}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -71,16 +71,16 @@
     <Compile Include="Assets\SpriteParticleEmitter\Editor\ImageEffects\BloomEditor.cs" />
     <Compile Include="Assets\SpriteParticleEmitter\Editor\ImageEffects\NoiseAndGrainEditor.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>/Users/leokoh/Desktop/StellarRecord/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>/Users/leokoh/Documents/Unity/sr/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/leokoh/Desktop/StellarRecord/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>/Users/leokoh/Documents/Unity/sr/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>/Users/leokoh/Desktop/StellarRecord/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>/Users/leokoh/Documents/Unity/sr/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/leokoh/Desktop/StellarRecord/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>/Users/leokoh/Documents/Unity/sr/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -388,7 +388,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{719B8427-061E-15F6-6E46-5189402CCEF5}</Project>
+      <Project>{B1682109-30F1-B3C3-9E08-4DC6147BD439}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
   </ItemGroup>
