@@ -29,6 +29,10 @@ public class Sensor : MonoBehaviour {
 	int clip;
 
 
+    public SphereCollider sensorCollider;
+    public float sensorRadius = 8;
+    public float changeRadius;
+    public float smallRadius = 1.25f;
 
     float dist = 0f;
 
@@ -47,22 +51,21 @@ public class Sensor : MonoBehaviour {
         //중앙 및 반지름 계산
         //중앙으로부터의 별의 거리 
         //를 환산하여 얻은 그에 맞는 노트 데이터 
-        dist = Vector3.Distance(center, transform.position);
+        
         center = GameObject.FindGameObjectWithTag("Center").transform.position;
         record = GameObject.FindGameObjectWithTag("Record").transform.localScale;
         //Debug.Log("Record : "+record);
+
+        //sensorRadius = sensorCollider.GetComponent<SphereCollider>().radius;
+        //sensorCollider.radius = sensorRadius;
+        
+        
     }
 
     void Update()
     {
 
         Calculation();
-        if (dist == (int)dist && dist != 0)
-        {
-            //Debug.Log("Sound");
-            //SelectNote();
-        }
-
 
         //SelectNote();
 
@@ -84,9 +87,6 @@ public class Sensor : MonoBehaviour {
         // terminate 와 leghth 의 비율을 이용하여 
         // 깔끔한 정수 값 (버림 혹은 올림) 을 얻어낸다. 
 
-
-
-
      
     }
 
@@ -102,8 +102,16 @@ public class Sensor : MonoBehaviour {
 
     // 그럼 겹칠 일도 없으며 온전히 소리가 재생된다. 
 
-
+    // 최소값의 반지름 : 1.62
+    // 최대값의 반지름 : 3.04
+    // map = 스피어반지름의 최저값 : 스피어반지름의 최대값 = 0 : 레코드의 반지름
+    // map // 반지름/최대값 = 거리/반지름 
+    // 반지름 = 별의거리/레코드반지름/스피어반지름최대값 
+    // 새로운 값 = 변화되는 반지름  / 최저거리 0 / 레코드반지름 = 새로운 값 / 스피어최저거리 0 / 스피어 최대값 
+    // 변화되는 위치 / 레코드의 최저, 최고거리 / 스피어의 최저, 최대 값 
     void Calculation(){
+
+        dist = Vector3.Distance(center, transform.position);
 
         record.y = 0;
         record.x = 0;
@@ -111,9 +119,21 @@ public class Sensor : MonoBehaviour {
 
         float radius = Vector3.Distance(center, record / 2);
         //Debug.Log("Radius : "+radius);
+        //Debug.Log("Dist : "+dist);
 
         float index = note.Length * dist / radius;
+        //배열의 최대 개수 * 변화거리 / 반지름(최대값)  
         //Debug.Log("index : "+index);
+        //스텔라의 터치센서 반지름 계산 
+   
+        //changeRadius =  smallRadius + (changeRadius-0)*(sensorRadius-smallRadius)/(radius-0);
+
+        /* 
+        changeRadius = dist/(radius-0)*(sensorRadius-smallRadius); 
+        sensorCollider.radius = changeRadius;    
+        */
+        
+        //Debug.Log("SensorCollider : "+ sensorCollider.radius);
 
         if (dist > radius)
         {

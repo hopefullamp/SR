@@ -16,11 +16,11 @@ public class TouchSensor : MonoBehaviour {
 	 public GameObject sphereCollider;
 	 public Collider stellarCollider;
 	 public Light light;
-
+	 public float rayRadius = 1250.0f;
 	 public GameObject stellar;
 
-     public GameObject goOne;
-     public GameObject center;
+     //public GameObject goOne;
+     //public GameObject center;
      
 	 bool turnOn;
 
@@ -33,7 +33,7 @@ public class TouchSensor : MonoBehaviour {
 
 	void Start(){
 		turnOn = false; 
-		initiateGO = goOne;
+		//initiateGO = goOne;
         goReady = true;
 	}
  
@@ -46,7 +46,7 @@ public class TouchSensor : MonoBehaviour {
 			RaycastHit hit;
 			//timeCount = timeCount + Time.deltaTime * 1;
 
-				if (Physics.Raycast(ray, out hit)){
+				if (Physics.Raycast(ray, out hit, rayRadius)){
 					if (Input.GetMouseButton(0) && hit.collider.gameObject==sphereCollider && turnOn == false) {	
 					//별이 반쯤 켜질때 O
 							Debug.Log("TestTurnOn");
@@ -79,7 +79,7 @@ public class TouchSensor : MonoBehaviour {
 					}
 					
 					
-					else if(Input.GetMouseButton(0) && hit.collider.gameObject!=sphereCollider && turnOn == false) {
+					else if(/*Input.GetMouseButton(0) &&*/hit.collider.gameObject!=sphereCollider && turnOn == false) {
 						//마우스가 근처에도 없고 아무것도 안되었을 때 
 						Debug.Log("TestTurnOff");
 						stellar.GetComponent<SpriteRenderer>().enabled = false;

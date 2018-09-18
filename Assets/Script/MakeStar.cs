@@ -54,7 +54,7 @@ public class MakeStar : MonoBehaviour {
 
 
             //star.GetComponent<Renderer>().enabled = false;
-            grid.SetActive(false);
+            //grid.SetActive(false);
             if (goReady)
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -68,13 +68,15 @@ public class MakeStar : MonoBehaviour {
                         //hit.point = new Vector3 (hit.point.x, 0.5f, hit.point.z);
                         //GameObject instance = Instantiate(initiateGO,hit.point,Quaternion.identity);
                         //instance.transform.parent = center.transform;
-                    
+                    }
+                    /*
                     }
                     else if (hit.collider.gameObject.tag == "Star"){
 
                         if (Physics.Raycast(ray, out hit, 1000.0f) && Input.GetMouseButtonUp(0)) // On left click we send down a ray
                             Destroy(hit.collider.gameObject); // Destroy what we hit
                     }
+                    */
                 }
             }
         }
