@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class lightcontrol : MonoBehaviour {
-     public Light light;
+    public Light thisLight;
      public float minIntensity = 0.25f;
      public float maxIntensity = 0.5f;
      public Record LoadRecord;//script
@@ -27,14 +27,17 @@ public class lightcontrol : MonoBehaviour {
 
      void Start()
      {
-         light.enabled=false;
-         random = Random.Range(0.0f, 65535.0f);
+        //light.enabled=false;
+        random = Random.Range(0.0f, 65535.0f);
      }
  
      void Update()
      {
+        //light.enabled=true;
+        float noise = Mathf.PerlinNoise(random, Time.time);
+        thisLight.intensity = Mathf.Lerp(minIntensity, maxIntensity, noise);
 
-
+         /* 
          if (LoadRecord.played == false){
             light.enabled=false;
          }
@@ -43,5 +46,6 @@ public class lightcontrol : MonoBehaviour {
             float noise = Mathf.PerlinNoise(random, Time.time);
             light.intensity = Mathf.Lerp(minIntensity, maxIntensity, noise);
          }
+         */
      }
  }

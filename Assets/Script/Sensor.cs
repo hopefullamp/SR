@@ -59,7 +59,7 @@ public class Sensor : MonoBehaviour {
         Calculation();
         if (dist == (int)dist && dist != 0)
         {
-            Debug.Log("Sound");
+            //Debug.Log("Sound");
             //SelectNote();
         }
 
