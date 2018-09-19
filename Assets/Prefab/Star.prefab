@@ -312,6 +312,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8e7d18ccfd2eac4459e3f02d768c81dc, type: 3}
   - {fileID: 8300000, guid: f16ee9de494b9cb418f9cf1b28f015bf, type: 3}
   - {fileID: 8300000, guid: 4f101e7321465954ab4768ee0acb86bc, type: 3}
+  center: {x: 0, y: 0, z: 0}
+  record: {x: 0, y: 0, z: 0}
+  sensorCollider: {fileID: 0}
+  sensorRadius: 8
+  changeRadius: 0
+  smallRadius: 1.25
 --- !u!114 &114807536063598470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -323,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05dbfd851bd9db46aae882ab8e5d4e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 108454528854539988}
+  thisLight: {fileID: 0}
   minIntensity: 0
   maxIntensity: 2.89
   LoadRecord: {fileID: 0}

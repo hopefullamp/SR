@@ -25,6 +25,10 @@ public class Sensor : MonoBehaviour {
 	public Vector3 center;
     public Vector3 record;
 
+
+
+    //public float radius;
+
 	int index;
 	int clip;
 
@@ -45,6 +49,13 @@ public class Sensor : MonoBehaviour {
 
 	void Start()
 	{
+
+        /* 
+        record.y = 0;
+        record.x = 0;
+        center.y = 0;
+        radius = Vector3.Distance(center, record / 2);
+        */
         //collider = GetComponent<Collider>();
 
         //audioData = GetComponent<AudioSource>();
@@ -64,8 +75,8 @@ public class Sensor : MonoBehaviour {
 
     void Update()
     {
-
         Calculation();
+        
 
         //SelectNote();
 
@@ -109,19 +120,20 @@ public class Sensor : MonoBehaviour {
     // 반지름 = 별의거리/레코드반지름/스피어반지름최대값 
     // 새로운 값 = 변화되는 반지름  / 최저거리 0 / 레코드반지름 = 새로운 값 / 스피어최저거리 0 / 스피어 최대값 
     // 변화되는 위치 / 레코드의 최저, 최고거리 / 스피어의 최저, 최대 값 
-    void Calculation(){
-
-        dist = Vector3.Distance(center, transform.position);
-
+    public void Calculation(){
         record.y = 0;
         record.x = 0;
         center.y = 0;
 
         float radius = Vector3.Distance(center, record / 2);
+        dist = Vector3.Distance(center, transform.position);
+
         //Debug.Log("Radius : "+radius);
         //Debug.Log("Dist : "+dist);
-
+    
         float index = note.Length * dist / radius;
+        clip = (int)index;
+
         //배열의 최대 개수 * 변화거리 / 반지름(최대값)  
         //Debug.Log("index : "+index);
         //스텔라의 터치센서 반지름 계산 
@@ -135,25 +147,26 @@ public class Sensor : MonoBehaviour {
         
         //Debug.Log("SensorCollider : "+ sensorCollider.radius);
 
+        /* 
         if (dist > radius)
         {
             Destroy(gameObject);
         }
-        clip = (int)index;
-
+        
+        */
     }
 
 
     void OnTriggerEnter(Collider other){
 		if(other.tag == "Head"){
-			//Debug.Log("clip : "+clip);
+			Debug.Log("clip : "+clip);
 			HitParticle();
 		}
 	}
 
 	void OnTriggerStay(Collider other){
 		if(other.tag == "Head"){
-			//Debug.Log("clip : "+clip);
+			//Debug.Log("Hit!" );
 			SelectNote();
 		}
 	}
@@ -161,8 +174,8 @@ public class Sensor : MonoBehaviour {
 	void SelectNote(){
 
 			audioSource = gameObject.GetComponent<AudioSource>();
-			//noteClip = note[index];
-
+			
+            //noteClip = note[index];
 			//여기에서 부터 악기선택에 따른 
 			//배열을 정해주면 될 것 같다. 
 			if(selectInst == 0){
@@ -177,6 +190,7 @@ public class Sensor : MonoBehaviour {
 
 			//동일한 형식의 오디오 클립 데이터를 위에서 랜덤으로 지정  
 			audioSource.clip = noteClip;
+            Debug.Log("noteclip :"+noteClip);
 			//오디오 소스의 클립을 위의 클립으로 지정 
 			audioSource.Play();
 			//audioData.Play(noteClip);
@@ -184,7 +198,7 @@ public class Sensor : MonoBehaviour {
 
 	void HitParticle(){
 	
-	Debug.Log("HitParticle!");
+	//Debug.Log("HitParticle!");
 	//헤드에 부딪힐때마다 
 	//Star에서 해당포지션에 파티클은 instance 
 	//파티클은 Star에서 분리되고, 
@@ -195,4 +209,5 @@ public class Sensor : MonoBehaviour {
 	explosionParticle.transform.parent = null;
 	//Destroy(explosionParticle.gameObject,explosionParticle.duration);
 	}
+
 }

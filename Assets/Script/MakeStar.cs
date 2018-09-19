@@ -4,24 +4,62 @@ using UnityEngine;
 
 public class MakeStar : MonoBehaviour {
 
-     public GameObject goOne;
-     public GameObject center;
+    //public GameObject goOne;
 
-     public GameObject grid;
-     //public GameObject star; 
-     
 
-     bool goReady;
+    public Transform StellarCenter;
+    public GameObject center;
+    public GameObject grid;
+    public Transform star;
+    Vector3 Center;
+    Vector3 Record;
+
+    //public Sensor sensor;
+
+    bool goReady;
  
-     GameObject initiateGO;
-     int nextNameNumber = 0;
-
-
+    //int nextNameNumber = 0;
 
 	void Start(){
-		initiateGO = goOne;
         goReady = true;
-	}
+        float stellarCount = 15;
+       
+        Center = GameObject.FindGameObjectWithTag("Center").transform.position;
+        Record = GameObject.FindGameObjectWithTag("Record").transform.localScale;
+        float radius = Vector3.Distance(Center, Record / 2);
+       //Debug.Log("Radius : "+radius);
+        
+         for (int i = 0; i < stellarCount; i++)
+        {//23 //23.1
+            Vector3 xPosition = new Vector3 ((i+1)*radius/(stellarCount+7.5f),1.0f,0.0f);
+            Quaternion rotation = Quaternion.Euler(90,0,0);
+            Transform instance = Instantiate(star,xPosition,rotation);
+            instance.transform.parent = StellarCenter.transform;
+        }
+
+        float barCount = 32;
+        for (int r =0; r < barCount-1; r++){
+            Quaternion rotation2 = Quaternion.Euler(0,(r+1)*360/barCount,0);
+            Transform instance2 = Instantiate(StellarCenter,new Vector3(0,0,0),rotation2);
+            instance2.transform.parent = center.transform;
+        }
+                
+        
+        
+        /* 
+        for(int x=1;x>15;x++){
+
+            Vector3 xPosition = new Vector3 (x*radius/16,1.0f,0.0f);
+            GameObject instance = Instantiate(star,xPosition,Quaternion.identity);
+            //Instantiate(star,xPosition,Quaternion.identity);
+            instance.transform.parent = center.transform;
+
+            for(int r=0;r<16;r++){
+
+            }
+        
+        */
+    }
  
     void Update () 
     {

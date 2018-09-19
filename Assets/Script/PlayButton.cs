@@ -35,6 +35,8 @@ public class PlayButton : MonoBehaviour {
         //각도 세팅
         axis.Normalize();
         _rotationVector = axis * degrees;
+
+        sensor.SetActive(false);
     }
 
     void Update()
@@ -95,7 +97,7 @@ public class PlayButton : MonoBehaviour {
 
             sensor.SetActive(false);
         
-            Debug.Log("SetActive Fasle"); 
+            //Debug.Log("SetActive Fasle"); 
             //여기에서 센터를 정지하는동안
             //헤드의 콜라다를 끈다. 
 

@@ -24,17 +24,15 @@ public class TouchSensor : MonoBehaviour {
      
 	 bool turnOn;
 
-     bool goReady;
- 
+
      GameObject initiateGO;
-     int nextNameNumber = 0;
-	 float timeCount = 0;
+     //int nextNameNumber = 0;
+	 //float timeCount = 0;
 
 
 	void Start(){
 		turnOn = false; 
-		//initiateGO = goOne;
-        goReady = true;
+
 	}
  
     void Update () 
@@ -74,14 +72,14 @@ public class TouchSensor : MonoBehaviour {
 						stellarCollider.enabled = false;
 						light.enabled = false;
 						turnOn = false; 
-						Debug.Log("Delete");
+						//Debug.Log("Delete");
 						//timeCount = 0;
 					}
 					
 					
 					else if(/*Input.GetMouseButton(0) &&*/hit.collider.gameObject!=sphereCollider && turnOn == false) {
 						//마우스가 근처에도 없고 아무것도 안되었을 때 
-						Debug.Log("TestTurnOff");
+						//Debug.Log("TestTurnOff");
 						stellar.GetComponent<SpriteRenderer>().enabled = false;
 						stellarCollider.enabled = false;
 						light.enabled=false; 
