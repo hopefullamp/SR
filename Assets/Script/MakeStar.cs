@@ -30,8 +30,10 @@ public class MakeStar : MonoBehaviour {
        //Debug.Log("Radius : "+radius);
         
          for (int i = 0; i < stellarCount; i++)
+
+         //높이를 -0.5 
         {//23 //23.1
-            Vector3 xPosition = new Vector3 ((i+1)*radius/(stellarCount+7.5f),1.0f,0.0f);
+            Vector3 xPosition = new Vector3 ((i+1)*radius/(stellarCount+7.5f),0.5f,0.0f);
             Quaternion rotation = Quaternion.Euler(90,0,0);
             Transform instance = Instantiate(star,xPosition,rotation);
             instance.transform.parent = StellarCenter.transform;
