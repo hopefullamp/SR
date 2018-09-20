@@ -76,13 +76,14 @@ public class PlayButton : MonoBehaviour {
             axis = new Vector3( 0, -1, 0 );
             _rotationVector = axis * degrees;
             //Debug.Log("axis : " +axis);
-            if ( degrees > _rotated ){
+            if ( degrees >= _rotated ){
             _rotated += degrees * (Time.deltaTime / timespan);
             transform.Rotate( _rotationVector * (Time.deltaTime / timespan) );
             }
             //Debug.Log("_rotated : "+_rotated);
 
                 if (_rotated >= 45) { //헤드가 45도만큼 회전했을 경우 
+                //45도가 완벽하게 되지 않는다. 
                 if (LoadRecord.played == false){
 			    LoadRecord.played = true;
                 sensor.SetActive(true);

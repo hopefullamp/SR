@@ -25,7 +25,7 @@ public class Sensor : MonoBehaviour {
 	public Vector3 center;
     public Vector3 record;
 
-
+    public TouchSensor touch_Sensor;
 
     //public float radius;
 
@@ -77,6 +77,12 @@ public class Sensor : MonoBehaviour {
     {
         Calculation();
         
+        if (touch_Sensor.testOn==true){
+                Debug.Log("TestOn");
+                SelectNote();
+        }   
+            
+
 
         //SelectNote();
 

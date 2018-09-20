@@ -47,7 +47,7 @@ public class TouchSensor : MonoBehaviour {
 
 				if (Physics.Raycast(ray, out hit, rayRadius)){
 					if (Input.GetMouseButton(0) && hit.collider.gameObject==sphereCollider && turnOn == false) {	
-					//별이 반쯤 켜질때 O
+					//별이 반쯤 켜질때 O - 테스트로 소리가 한번 나야함. 
 							Debug.Log("TestTurnOn");
 							light.enabled=true;
 							stellarCollider.enabled=false;

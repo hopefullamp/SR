@@ -34,11 +34,11 @@ public class lightcontrol : MonoBehaviour {
  
      void Update()
      {
-        if(touchSensor.testOn == true){
-            maxIntensity = 0.3f;
+        if(touchSensor.testOn == false){
+            maxIntensity = 0.5f;
 
         } else {
-            maxIntensity = 1.2f;
+            maxIntensity = 1.5f;
         }
 
         //light.enabled=true;

@@ -3751,7 +3751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   played: 0
-  speed: 5
+  speed: 20
 --- !u!1 &900207927
 GameObject:
   m_ObjectHideFlags: 0
