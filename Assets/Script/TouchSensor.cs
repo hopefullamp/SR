@@ -18,6 +18,7 @@ public class TouchSensor : MonoBehaviour {
 	 public Light light;
 	 public float rayRadius = 1250.0f;
 	 public GameObject stellar;
+	 public bool testOn;
 
      //public GameObject goOne;
      //public GameObject center;
@@ -52,6 +53,7 @@ public class TouchSensor : MonoBehaviour {
 							stellarCollider.enabled=false;
 							stellar.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,.3f);
 							stellar.GetComponent<SpriteRenderer>().enabled = true;
+							testOn = true;
 					}
 
 					else if (Input.GetMouseButtonUp(0) && hit.collider.gameObject==sphereCollider && turnOn == false)  {
@@ -63,6 +65,7 @@ public class TouchSensor : MonoBehaviour {
 						light.enabled=true;
 						turnOn=true;
 						Debug.Log("Turn On");
+						testOn = false;
 						//timeCount = 0;
 					
 					}
@@ -72,6 +75,7 @@ public class TouchSensor : MonoBehaviour {
 						stellarCollider.enabled = false;
 						light.enabled = false;
 						turnOn = false; 
+						testOn = false;
 						//Debug.Log("Delete");
 						//timeCount = 0;
 					}
@@ -83,6 +87,7 @@ public class TouchSensor : MonoBehaviour {
 						stellar.GetComponent<SpriteRenderer>().enabled = false;
 						stellarCollider.enabled = false;
 						light.enabled=false; 
+						testOn = false;
 						//timeCount=0;
 						}
 					}

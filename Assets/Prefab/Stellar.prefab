@@ -250,9 +250,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisLight: {fileID: 108612326166023324}
   minIntensity: 0
-  maxIntensity: 0.5
+  maxIntensity: 0.3
   LoadRecord: {fileID: 0}
   Center: {fileID: 0}
+  touchSensor: {fileID: 114431230769598070}
 --- !u!114 &114431230769598070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,6 +270,7 @@ MonoBehaviour:
   light: {fileID: 108612326166023324}
   rayRadius: 1250
   stellar: {fileID: 1810790118841546}
+  testOn: 0
 --- !u!114 &114497304098261390
 MonoBehaviour:
   m_ObjectHideFlags: 1

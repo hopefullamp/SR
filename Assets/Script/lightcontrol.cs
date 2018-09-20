@@ -9,6 +9,7 @@ public class lightcontrol : MonoBehaviour {
      public Record LoadRecord;//script
      public GameObject Center;//object
      
+     public TouchSensor touchSensor;
 
     // public NameoftheScript other;
     // public GameObject SpawnZone;
@@ -33,6 +34,13 @@ public class lightcontrol : MonoBehaviour {
  
      void Update()
      {
+        if(touchSensor.testOn == true){
+            maxIntensity = 0.3f;
+
+        } else {
+            maxIntensity = 1.2f;
+        }
+
         //light.enabled=true;
         float noise = Mathf.PerlinNoise(random, Time.time);
         thisLight.intensity = Mathf.Lerp(minIntensity, maxIntensity, noise);
