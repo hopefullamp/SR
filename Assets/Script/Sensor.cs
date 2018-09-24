@@ -64,7 +64,7 @@ public class Sensor : MonoBehaviour {
         //를 환산하여 얻은 그에 맞는 노트 데이터 
         
         center = GameObject.FindGameObjectWithTag("Center").transform.position;
-        record = GameObject.FindGameObjectWithTag("Record").transform.localScale;
+        record = GameObject.FindGameObjectWithTag("Record").transform.lossyScale;
         //Debug.Log("Record : "+record);
 
         //sensorRadius = sensorCollider.GetComponent<SphereCollider>().radius;
@@ -134,7 +134,7 @@ public class Sensor : MonoBehaviour {
         float radius = Vector3.Distance(center, record / 2);
         dist = Vector3.Distance(center, transform.position);
 
-        //Debug.Log("Radius : "+radius);
+        Debug.Log("Radius : "+radius);
         //Debug.Log("Dist : "+dist);
     
         float index = note.Length * dist / radius;

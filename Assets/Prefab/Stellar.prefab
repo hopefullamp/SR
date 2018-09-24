@@ -85,7 +85,7 @@ Transform:
   m_GameObject: {fileID: 1810790118841546}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -19.45, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.20000012, z: 0.20000012}
+  m_LocalScale: {x: 0.2, y: 0.20000024, z: 0.20000024}
   m_Children:
   - {fileID: 4362238274789930}
   - {fileID: 4173134929926604}
@@ -285,7 +285,7 @@ MonoBehaviour:
   explosionParticle: {fileID: 198407975099174610, guid: c7c3b671fd66c7241853cfd5eec07385,
     type: 2}
   audioSource: {fileID: 82470452381915056}
-  selectInst: 2
+  selectInst: 0
   note:
   - {fileID: 8300000, guid: 02a9cb57d59c5e74eaf22832bd341123, type: 3}
   - {fileID: 8300000, guid: 74d0d2fc5fcc1b846ad53dd43277f51e, type: 3}
