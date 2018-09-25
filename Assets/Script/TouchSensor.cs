@@ -15,7 +15,7 @@ public class TouchSensor : MonoBehaviour {
 
 	 public GameObject sphereCollider;
 	 public Collider stellarCollider;
-	 public Light light;
+	 public GameObject light;
 	 public float rayRadius = 1250.0f;
 	 public GameObject stellar;
 	 public bool testOn;
@@ -48,8 +48,10 @@ public class TouchSensor : MonoBehaviour {
 				if (Physics.Raycast(ray, out hit, rayRadius)){
 					if (Input.GetMouseButton(0) && hit.collider.gameObject==sphereCollider && turnOn == false) {	
 					//별이 반쯤 켜질때 O - 테스트로 소리가 한번 나야함. 
-							Debug.Log("TestTurnOn");
-							light.enabled=true;
+							//Debug.Log("TestTurnOn");
+							stellar.SetActive(true);
+							light.SetActive(true);
+							//light.enabled=true;
 							stellarCollider.enabled=false;
 							stellar.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,.3f);
 							stellar.GetComponent<SpriteRenderer>().enabled = true;
@@ -58,74 +60,60 @@ public class TouchSensor : MonoBehaviour {
 
 					else if (Input.GetMouseButtonUp(0) && hit.collider.gameObject==sphereCollider && turnOn == false)  {
 					//별이진짜 켜질 때 O
-					//마우스가 별에가서 터치하고 별을 떼었을 때 
+					//마우스가 별에가서 터치하고 별을 떼었을 때
+						stellar.SetActive(true);
+						light.SetActive(true);
 						stellar.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
 						stellar.GetComponent<SpriteRenderer>().enabled = true;
 						stellarCollider.enabled = true;
-						light.enabled=true;
+						//light.enabled=true;
 						turnOn=true;
-						Debug.Log("Turn On");
+						//Debug.Log("Turn On");
 						testOn = false;
 						//timeCount = 0;
 					
 					}
 					//별을 지울 때 O
 					else if(Input.GetMouseButtonUp(0) && hit.collider.gameObject==sphereCollider && turnOn == true){ 
+						stellar.SetActive(false);
+						light.SetActive(false);
 						stellar.GetComponent<SpriteRenderer>().enabled = false;
 						stellarCollider.enabled = false;
-						light.enabled = false;
+						//light.enabled = false;
 						turnOn = false; 
 						testOn = false;
 						//Debug.Log("Delete");
 						//timeCount = 0;
 					}
-					
-					
-					else if(/*Input.GetMouseButton(0) &&*/hit.collider.gameObject!=sphereCollider && turnOn == false) {
-						//마우스가 근처에도 없고 아무것도 안되었을 때 
-						//Debug.Log("TestTurnOff");
+
+					else if (hit.collider.gameObject!=sphereCollider && turnOn == false){
+						stellar.SetActive(false);
+						light.SetActive(false);
 						stellar.GetComponent<SpriteRenderer>().enabled = false;
 						stellarCollider.enabled = false;
-						light.enabled=false; 
-						testOn = false;
-						//timeCount=0;
-						}
 					}
+		
+				}
+				//별이 완전히 꺼질 때 
+				else if(turnOn == false) {
+					//진짜 문제는 이 것이다. 
+					//현재 이 조건으로 코드가 통과할 때마다 매우 느려지게 된다. 
+					
+					//Debug.Log("TestTurnOff");
+					stellar.SetActive(false);
+					light.SetActive(false);
+					stellar.GetComponent<SpriteRenderer>().enabled = false;
+					stellarCollider.enabled = false;
+					//light.enabled=false; 
+					//testOn = false;
+					//timeCount=0;
 				}
 
-    }
+						
+	}		
+}
 
 
 
 
-        
-
-		/* 
-        else if (Input.GetMouseButtonUp(0)){
-
-
-            star.GetComponent<Renderer>().enabled = false;
-
-            grid.SetActive(false);
-            if (goReady)
-            {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                
-                if (Physics.Raycast(ray, out hit)){
-                    if (hit.collider.gameObject.tag == "Record")//&& Input.GetMouseButtonDown(0))
-                    {
-                        //hit.point = new Vector3 (hit.point.x, 0.5f, hit.point.z);
-                        //GameObject instance = Instantiate(initiateGO,hit.point,Quaternion.identity);
-                        //instance.transform.parent = center.transform;
-                    
-                    }
-                    else if (hit.collider.gameObject.tag == "Star"){
-
-                        if (Physics.Raycast(ray, out hit, 1000.0f) && Input.GetMouseButtonUp(0)) // On left click we send down a ray
-                            Destroy(hit.collider.gameObject); // Destroy what we hit
-                    }
-                }
-            }
-			*/
 

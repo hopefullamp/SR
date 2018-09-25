@@ -22,10 +22,11 @@ public class Sensor : MonoBehaviour {
 	public AudioClip[] note3;
  	private AudioClip noteClip;
 	
-	public Vector3 center;
-    public Vector3 record;
 
-    public TouchSensor touch_Sensor;
+    //public GameObject stellarCenterTrasnform;
+    //public Transform recordTransform;
+
+    //public TouchSensor touch_Sensor;
 
     //public float radius;
 
@@ -37,6 +38,10 @@ public class Sensor : MonoBehaviour {
     public float sensorRadius = 8;
     public float changeRadius;
     public float smallRadius = 1.25f;
+
+    Vector3 center;
+    Vector3 record;
+
 
     float dist = 0f;
 
@@ -63,25 +68,40 @@ public class Sensor : MonoBehaviour {
         //중앙으로부터의 별의 거리 
         //를 환산하여 얻은 그에 맞는 노트 데이터 
         
-        center = GameObject.FindGameObjectWithTag("Center").transform.position;
-        record = GameObject.FindGameObjectWithTag("Record").transform.localScale;
-        //Debug.Log("Record : "+record);
+        /* 
+        center = stellarCenterTrasnform.transform.position;
+        record = recordTransform.transform.lossyScale;
+        Debug.Log("StartRecordSize : "+record);
+        */
 
         //sensorRadius = sensorCollider.GetComponent<SphereCollider>().radius;
         //sensorCollider.radius = sensorRadius;
-        
-        
+        //SelectNote();
+        //Debug.Log("StartRecordSize : "+record);
+
     }
+
+    void OnEnable()
+    {
+        
+
+        
+        center = GameObject.FindGameObjectWithTag("MainCenter").transform.position;
+        record = GameObject.FindGameObjectWithTag("MainRecord").transform.lossyScale;
+        //record = recordTransform.GetComponent<Transform>().lossyScale;
+        Calculation();
+
+        SelectNote();
+    
+    }
+
 
     void Update()
     {
+
         Calculation();
         
-        if (touch_Sensor.testOn==true){
-                Debug.Log("TestOn");
-                SelectNote();
-        }   
-            
+
 
 
         //SelectNote();
@@ -133,15 +153,15 @@ public class Sensor : MonoBehaviour {
 
         float radius = Vector3.Distance(center, record / 2);
         dist = Vector3.Distance(center, transform.position);
-
-        //Debug.Log("Radius : "+radius);
-        //Debug.Log("Dist : "+dist);
+        Debug.Log("Record : "+record);
+        Debug.Log("Radius : "+radius);
+        Debug.Log("Dist : "+dist);
     
         float index = note.Length * dist / radius;
         clip = (int)index;
 
         //배열의 최대 개수 * 변화거리 / 반지름(최대값)  
-        //Debug.Log("index : "+index);
+        Debug.Log("index : "+index);
         //스텔라의 터치센서 반지름 계산 
    
         //changeRadius =  smallRadius + (changeRadius-0)*(sensorRadius-smallRadius)/(radius-0);

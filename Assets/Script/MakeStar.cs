@@ -7,12 +7,17 @@ public class MakeStar : MonoBehaviour {
     //public GameObject goOne;
 
 
-    public Transform StellarCenter;
+ 
     public GameObject center;
     public GameObject grid;
     public Transform star;
+    public Transform StellarCenter;
     Vector3 Center;
     Vector3 Record;
+    //Vector3 StellarCenterScale;
+    //Vector3 StellarCenterPosition;
+    Vector3 xPosition;
+    Quaternion rotation;
 
     //public Sensor sensor;
 
@@ -24,28 +29,64 @@ public class MakeStar : MonoBehaviour {
         goReady = true;
         float stellarCount = 15;
        
-        Center = GameObject.FindGameObjectWithTag("Center").transform.position;
-        Record = GameObject.FindGameObjectWithTag("Record").transform.localScale;
+         
+        Center = GameObject.FindGameObjectWithTag("MainCenter").transform.position;
+        Record = GameObject.FindGameObjectWithTag("MainRecord").transform.lossyScale;
+        //StellarCenterScale = GameObject.FindGameObjectWithTag("StellarCenter").transform.lossyScale;
+        //StellarCenterPosition = GameObject.FindGameObjectWithTag("StellarCenter").transform.localPosition;
+
+
+        Record.y = 0;
+        Record.x = 0;
+        Center.y = 0;
+
         float radius = Vector3.Distance(Center, Record / 2);
-       //Debug.Log("Radius : "+radius);
-        
-         for (int i = 0; i < stellarCount; i++)
+        //Debug.Log("makeCenter : " + Center);
+        //Debug.Log("makeRecord : " + Record);
+        //Debug.Log("makeRadius : "+radius);
+
+
+        int i = 0;
+
+        for (i = 0; i < stellarCount+1; i++)
 
          //높이를 -0.5 
         {//23 //23.1
-            Vector3 xPosition = new Vector3 ((i+1)*radius/(stellarCount+7.5f),0.5f,0.0f);
-            Quaternion rotation = Quaternion.Euler(90,0,0);
-            Transform instance = Instantiate(star,xPosition,rotation);
-            instance.transform.parent = StellarCenter.transform;
-        }
 
-        float barCount = 32;
-        for (int r =0; r < barCount-1; r++){
-            Quaternion rotation2 = Quaternion.Euler(0,(r+1)*360/barCount,0);
-            Transform instance2 = Instantiate(StellarCenter,new Vector3(0,0,0),rotation2);
-            instance2.transform.parent = center.transform;
+            if (i == stellarCount) {
+            }
+            else{
+                xPosition = new Vector3 ((i+1)*radius/(stellarCount+1),1.5f/*높이*/,0.0f/*z*/);
+                //Debug.Log("xPosition: " + xPosition);
+                rotation = Quaternion.Euler(0,0,0);
+                Transform instance = Instantiate(star, xPosition, rotation);
+                instance.transform.parent = StellarCenter.transform;
+            }
         }
-                
+        
+        
+        float barCount = 32; //마디의 수 
+        for (int r = 0; r < barCount - 1; r++)
+        {
+            //현재의 문제점 : 첫번째 for 문을 실행하는데에는 문제가 없으나 그 다음부터 스케일 값이 바뀌어 버린다  
+            //분명 이 것은 각도를 회전하면서 생기는 문제임이 분명하다 (아마 그렇게 되는데에는 월드 스케일을 받는 이유가 클 것이다) 
+            //이렇게 되면 나중에 서브레코드를 활용하는데 있어서 매우 큰 어려움이 생긴다... 
+
+            Quaternion rotation2 = Quaternion.Euler(0, (r + 1) * 360 / barCount, 0);
+            Transform instance2 = Instantiate(StellarCenter, new Vector3(0, 1, 0), rotation2);
+            //Debug.Log("instance2 : " + instance2.transform);
+            
+            //Transform.SetParent(center,false);
+            instance2.transform.parent = center.transform;
+            
+        }
+        
+        
+        
+
+        
+
+
         
         
         /* 

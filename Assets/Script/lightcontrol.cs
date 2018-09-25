@@ -22,8 +22,8 @@ public class lightcontrol : MonoBehaviour {
         // Setting up the reference.
         // GameObject SpawnZone = GameObject.Find("NameoftheGameObject");     
         // other = SpawnZone.GetComponent<NameoftheScript >(); 
-        GameObject Center = GameObject.Find("Center");                  
-        LoadRecord = Center.GetComponent<Record>();
+        //GameObject Center = GameObject.Find("Center");                  
+        //LoadRecord = Center.GetComponent<Record>();
      }
 
      void Start()

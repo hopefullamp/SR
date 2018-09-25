@@ -1,8 +1,11 @@
 ﻿<Properties StartupConfiguration="{44B827B6-DAA2-2A3A-F016-8EB31BB9A968}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/newSensor2.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/MakeStar.cs">
     <Files>
       <File FileName="Assets/Script/newSensor2.cs" Line="10" Column="23" />
+      <File FileName="Assets/Script/Sensor.cs" Line="60" Column="1" />
+      <File FileName="Assets/Script/MakeStar.cs" Line="54" Column="24" />
+      <File FileName="Assets/Script/TouchSensor.cs" Line="18" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

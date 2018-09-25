@@ -11,6 +11,9 @@ TagManager:
   - Head
   - Center
   - Boundary
+  - StellarCenter
+  - MainRecord
+  - MainCenter
   layers:
   - Default
   - TransparentFX
