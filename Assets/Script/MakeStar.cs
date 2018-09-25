@@ -56,7 +56,7 @@ public class MakeStar : MonoBehaviour {
             if (i == stellarCount) {
             }
             else{
-                xPosition = new Vector3 ((i+1)*radius/(stellarCount+1),1.5f/*높이*/,0.0f/*z*/);
+                xPosition = new Vector3 ((i+1)*radius/(stellarCount+1),0f/*높이*/,0.0f/*z*/);
                 //Debug.Log("xPosition: " + xPosition);
                 rotation = Quaternion.Euler(0,0,0);
                 Transform instance = Instantiate(star, xPosition, rotation);
@@ -73,11 +73,14 @@ public class MakeStar : MonoBehaviour {
             //이렇게 되면 나중에 서브레코드를 활용하는데 있어서 매우 큰 어려움이 생긴다... 
 
             Quaternion rotation2 = Quaternion.Euler(0, (r + 1) * 360 / barCount, 0);
-            Transform instance2 = Instantiate(StellarCenter, new Vector3(0, 1, 0), rotation2);
+            Transform instance2 = Instantiate(StellarCenter, new Vector3(0, 0, 0), rotation2);
             //Debug.Log("instance2 : " + instance2.transform);
             
-            //Transform.SetParent(center,false);
-            instance2.transform.parent = center.transform;
+            //setparent 를 추천받았다
+            //코드 가독성  
+            
+            instance2.transform.SetParent(center.transform);
+            //instance2.transform.parent = center.transform;
             
         }
         

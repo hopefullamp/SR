@@ -84,10 +84,9 @@ public class Sensor : MonoBehaviour {
     void OnEnable()
     {
         
-
-        
         center = GameObject.FindGameObjectWithTag("MainCenter").transform.position;
         record = GameObject.FindGameObjectWithTag("MainRecord").transform.lossyScale;
+
         //record = recordTransform.GetComponent<Transform>().lossyScale;
         Calculation();
 
@@ -153,9 +152,9 @@ public class Sensor : MonoBehaviour {
 
         float radius = Vector3.Distance(center, record / 2);
         dist = Vector3.Distance(center, transform.position);
-        Debug.Log("Record : "+record);
-        Debug.Log("Radius : "+radius);
-        Debug.Log("Dist : "+dist);
+        //Debug.Log("Record : "+record);
+        //Debug.Log("Radius : "+radius);
+        //Debug.Log("Dist : "+dist);
     
         float index = note.Length * dist / radius;
         clip = (int)index;
