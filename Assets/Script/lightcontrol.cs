@@ -6,8 +6,8 @@ public class lightcontrol : MonoBehaviour {
     public Light thisLight;
      public float minIntensity = 0.25f;
      public float maxIntensity = 0.5f;
-     public Record LoadRecord;//script
-     public GameObject Center;//object
+     //public Record LoadRecord;//script
+     //public GameObject Center;//object
      
      public TouchSensor touchSensor;
 
