@@ -19,6 +19,7 @@ public class PlayButton : MonoBehaviour {
     private float degrees = 45f;
     private float timespan = 1f;
     
+    Vector3 rotation; 
     private bool switched = false;
    
     private float _rotated = 0;
@@ -41,6 +42,9 @@ public class PlayButton : MonoBehaviour {
 
     void Update()
     {
+        //rotation = transform.rotation.eulerAngles;
+        //Debug.Log("rotation : "+ rotation);
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -63,6 +67,8 @@ public class PlayButton : MonoBehaviour {
                         switched = true;
                         //grid.SetActive(false);
                         touched = 1;
+
+
                     //지금 이게 헤드 턴의 시작이다. 
                     //불린 toched 만을 조건부로 할 경우 버튼을 누르지도 않았는데 돌아가버린다
 
@@ -84,11 +90,13 @@ public class PlayButton : MonoBehaviour {
 
                 if (_rotated >= 45) { //헤드가 45도만큼 회전했을 경우 
                 //45도가 완벽하게 되지 않는다. 
-                if (LoadRecord.played == false){
-			    LoadRecord.played = true;
-                sensor.SetActive(true);
+                    transform.rotation = Quaternion.Euler(0 ,315 ,0);
+                    if (LoadRecord.played == false){
+                    LoadRecord.played = true;
+                    sensor.SetActive(true);
                 
-                }
+
+                    }
                 //여기에서 센터를 돌려주는동안  
                 //헤드의 콜라다를 켠다. 
             }
@@ -112,6 +120,9 @@ public class PlayButton : MonoBehaviour {
             if ( _rotated > 0 ){
             _rotated -= degrees * (Time.deltaTime / timespan);
             transform.Rotate( _rotationVector * (Time.deltaTime / timespan) );
+            
+
+            
             }
             //Debug.Log("_rotated : "+_rotated);
         }
