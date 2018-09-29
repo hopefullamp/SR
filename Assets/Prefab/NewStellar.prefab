@@ -312,6 +312,7 @@ MonoBehaviour:
   explosionParticle: {fileID: 198407975099174610, guid: c7c3b671fd66c7241853cfd5eec07385,
     type: 2}
   audioSource: {fileID: 82193455591609008}
+  instChanger: {fileID: 0}
   selectInst: 0
   note:
   - {fileID: 8300000, guid: 02a9cb57d59c5e74eaf22832bd341123, type: 3}
@@ -361,6 +362,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: aed34aa141e42dc46a0ab2365eeb9e7f, type: 3}
   - {fileID: 8300000, guid: b5961529e119f474bb8b0470cd1c4538, type: 3}
   - {fileID: 8300000, guid: 317d80bfaacc56844bc1a2ec520d1d32, type: 3}
+  note4: []
+  note5: []
+  note6: []
   sensorCollider: {fileID: 135707921430671030}
   sensorRadius: 31.5
   changeRadius: 1.72

@@ -14,6 +14,13 @@ TagManager:
   - StellarCenter
   - MainRecord
   - MainCenter
+  - TempoButton
+  - Inst1
+  - Inst2
+  - Inst3
+  - Inst4
+  - Inst5
+  - Inst6
   layers:
   - Default
   - TransparentFX

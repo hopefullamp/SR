@@ -8,18 +8,23 @@ public class Sensor : MonoBehaviour {
 	//AudioSource audioData;
 	public AudioSource audioSource;
 
+    public InstChanger instChanger;
 
 	public int selectInst = 0;
-    //이 inst 데이터를 외부에서 관리해주는게 아니라 
-    //star 자체에서 외부 데이터를 이름으로 찾아서 
-    //직접 찾아서 이 변수를 정해주어야한다. 
-    //안그럼 바뀌지 않는다. 
+    //별에서 악기의 소리를 바꾸는 변수 (0~5)
+    //문제점 : 외부에서 이 변수로 액세스가 불가능하다. 
+    //아마 프리팹이기 때문일 것이라 판단된다. 
+    //
+
 
     //public Collider collider;
 
  	public AudioClip[] note;
 	public AudioClip[] note2;
 	public AudioClip[] note3;
+	public AudioClip[] note4;
+	public AudioClip[] note5;
+	public AudioClip[] note6;
  	private AudioClip noteClip;
 	
 
@@ -89,9 +94,7 @@ public class Sensor : MonoBehaviour {
 
         //record = recordTransform.GetComponent<Transform>().lossyScale;
         Calculation();
-
         SelectNote();
-    
     }
 
 
@@ -160,7 +163,7 @@ public class Sensor : MonoBehaviour {
         clip = (int)index;
 
         //배열의 최대 개수 * 변화거리 / 반지름(최대값)  
-        Debug.Log("index : "+index);
+        //Debug.Log("index : "+index);
         //스텔라의 터치센서 반지름 계산 
    
         //changeRadius =  smallRadius + (changeRadius-0)*(sensorRadius-smallRadius)/(radius-0);
@@ -203,6 +206,13 @@ public class Sensor : MonoBehaviour {
             //noteClip = note[index];
 			//여기에서 부터 악기선택에 따른 
 			//배열을 정해주면 될 것 같다. 
+
+            //자신이 메인레코드에 존재하는 경우에만 악기가 바뀌게 해야한다. 
+            selectInst = instChanger.instNum;
+            //우선 클론된 스타들이 직접 InstChanger Class 의 변수를 받아 바뀌게하였다. 
+
+            Debug.Log("Inst Num : "+ instChanger.instNum);
+
 			if(selectInst == 0){
 				noteClip = note[clip];
 			}
@@ -212,6 +222,16 @@ public class Sensor : MonoBehaviour {
 			else if(selectInst == 2){
 				noteClip = note3[clip];
 			}
+			else if(selectInst == 3){
+				noteClip = note4[clip];
+			}
+    		else if(selectInst == 4){
+				noteClip = note5[clip];
+			}
+    		else if(selectInst == 5){
+				noteClip = note6[clip];
+			}
+
 
 			//동일한 형식의 오디오 클립 데이터를 위에서 랜덤으로 지정  
 			audioSource.clip = noteClip;
