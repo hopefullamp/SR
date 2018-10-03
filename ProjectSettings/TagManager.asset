@@ -21,6 +21,7 @@ TagManager:
   - Inst4
   - Inst5
   - Inst6
+  - REC
   layers:
   - Default
   - TransparentFX
